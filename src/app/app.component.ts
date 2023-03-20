@@ -35,14 +35,19 @@ export class AppComponent {
 // TipoVoid: KiPapRetounenAnyen
   addEmployee(): void { 
     this.employees.push(this.model) 
-    console.log(this.model);
-    localStorage.setItem("Model", this.model);
+    this.message = 'Aggregate'
 
+    console.log(this.model);
+    localStorage.setItem("Model", this.model); 
   } 
 
   deleteEmployee(i:any): void {  
-    this.employees.slice(1, 1); 
-    this.message = "Record is successfully Delete"
+    var answer = confirm("Are you sure? "); 
+
+    if (answer) {
+      this.employees.slice(i, 1); 
+      // this.message = "Record is successfully Delete" 
+    }
 
   } 
  

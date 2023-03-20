@@ -8,11 +8,11 @@
     </div> 
 
     <div class="col-sm-4"> 
-      <div class="alert alert-success alert-dismissable"> 
-        <a class="close" href="#"> 
+      <div class="alert alert-success alert-dismissable *ngIf='mensaje"> 
+        <a class="close" href="#" (click)="closeAlert()"> 
           @times
         </a> 
-        mensaje aqui
+        {{message}}
       </div> 
     </div>
   </div> 
