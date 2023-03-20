@@ -30,12 +30,13 @@ export class AppComponent {
 
   model:any = {}; 
   model2:any = {}; 
-  message: string = '';
+  message: string = ''; 
+  hideUpdate: boolean = true; 
 
 // TipoVoid: KiPapRetounenAnyen
   addEmployee(): void { 
     this.employees.push(this.model) 
-    this.message = 'Aggregate'
+    this.message = 'Successfully Aggregate'
 
     console.log(this.model);
     localStorage.setItem("Model", this.model); 
@@ -46,7 +47,7 @@ export class AppComponent {
 
     if (answer) {
       this.employees.slice(i, 1); 
-      // this.message = "Record is successfully Delete" 
+      this.message = "Successfully Delete" 
     }
 
   } 
@@ -57,7 +58,8 @@ export class AppComponent {
     this.model2.name = this.employees[i].name; 
     this.model2.position = this.employees[i].position;  
     this.model2.email = this.employees[i].email; 
-    this.myValue = i; 
+    this.myValue = i;  
+    this.hideUpdate = false; 
   } 
 
   upDateEmployee(): void { 
@@ -69,7 +71,7 @@ export class AppComponent {
         this.message = 'Record is successfully upDated'; 
       }
     } 
-    // this.hideUpdate = true; 
+    this.hideUpdate = true; 
   } 
   closeAlert():void {  
     this.message = ''; 
