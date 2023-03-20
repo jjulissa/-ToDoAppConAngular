@@ -29,16 +29,21 @@ export class AppComponent {
   ]; 
 
   model:any = {}; 
-  model2:any = {};
+  model2:any = {}; 
+  message: string = '';
 
 // TipoVoid: KiPapRetounenAnyen
   addEmployee(): void { 
-    this.employees.push(this.model)
+    this.employees.push(this.model) 
+    console.log(this.model);
+    localStorage.setItem("Model", this.model);
 
   } 
 
-  deleteEmployee(i:any): void { 
-    
+  deleteEmployee(i:any): void {  
+    this.employees.slice(1, 1); 
+    this.message = "Record is successfully Delete"
+
   } 
  
   myValue:any; 
@@ -51,7 +56,17 @@ export class AppComponent {
   } 
 
   upDateEmployee(): void { 
-    console.log(this.model2);
-    
+    console.log(this.model2); 
+    let i = this.myValue; 
+    for(let j=0; j<this.employees.length; j++) {  
+      if( i == j ) { 
+        this.employees[i] = this.model2; 
+        this.message = 'Record is successfully upDated'; 
+      }
+    } 
+    // this.hideUpdate = true; 
+  } 
+  closeAlert():void {  
+    this.message = ''; 
   }
 }
